@@ -15,7 +15,7 @@ const showToUi = (data) => {
     var tr = document.createElement("tr");
 
     var td1 = document.createElement("td");
-    td1.innerText = index + 1;
+    td1.innerText = elem.id;
     var td2 = document.createElement("td");
     td2.innerText = elem.name;
     console.log(elem.name);
@@ -30,6 +30,9 @@ const showToUi = (data) => {
     });
     var viewButton = document.createElement("button");
     viewButton.innerText = "View";
+    viewButton.addEventListener("click", () => {
+      sendIdToViewPage(elem.id);
+    });
     var editButton = document.createElement("button");
     editButton.innerText = "Edit";
     editButton.addEventListener("click", () => {
@@ -52,4 +55,9 @@ const removeItem = async (id) => {
 const editData = (id) => {
   localStorage.setItem("Id", id);
   window.location.href = "./Edit User/editUser.html";
+};
+
+const sendIdToViewPage = (id) => {
+  localStorage.setItem("viewId", id);
+  window.location.href = "./View User/viewUser.html";
 };

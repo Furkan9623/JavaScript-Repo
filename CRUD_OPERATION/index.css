@@ -7,6 +7,13 @@ table {
   width: 80%;
   margin: auto;
 }
-tr{
-    text-align: center;
+tr {
+  text-align: center;
+}
+#viewDiv {
+  text-align: center;
+  box-shadow: 0px 0px 10px black;
+  padding: 50px;
+  width: fit-content;
+  margin: auto;
 }
