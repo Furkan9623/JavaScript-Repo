@@ -1,4 +1,5 @@
-console.log("furkan");
+// console.log("furkan");
+
 fetch("https://fakestoreapi.com/products")
   .then((res) => res.json())
   .then((data) => showToUI(data));
@@ -26,7 +27,11 @@ const showToUI = (data) => {
     console.log(elem.qty);
     div.append(imgTag, titleTag, price, addBtn);
     document.getElementById("main").append(div);
-    document.getElementById("span").innerHTML = cartArray.length;
+    if (cartArray.length <= 0) {
+      document.getElementById("span").innerHTML = "";
+    } else {
+      document.getElementById("span").innerHTML = cartArray.length;
+    }
   });
 };
 
