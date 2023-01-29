@@ -36,7 +36,7 @@ function showToUI(cartArray) {
     dec.innerText = "➖";
     // decreament
     dec.addEventListener("click", () => {
-      decreament(elem);
+      decreament(elem, index);
     });
     var span = document.createElement("span");
 
@@ -71,17 +71,21 @@ function increament(product) {
 }
 
 // decreament quantity function
-function decreament(product) {
+function decreament(product, index) {
   var itemAlreadyExist = cartArray.find((elem) => elem.id === product.id);
-  console.log(itemAlreadyExist);
+  // console.log(itemAlreadyExist);
+
   if (itemAlreadyExist.qty === 1) {
-    return;
-  } else {
-    itemAlreadyExist.qty -= 1;
+    cartArray.splice(index, 1);
     localStorage.setItem("cartItem", JSON.stringify(cartArray));
     showToUI(cartArray);
-    calculation();
+  } else {
+    // itemAlreadyExist -= 1;
+    itemAlreadyExist.qty = itemAlreadyExist.qty - 1;
+    localStorage.setItem("cartItem", JSON.stringify(cartArray));
+    showToUI(cartArray);
   }
+  calculation();
 }
 
 // implement map and reduce together for total amount calculation

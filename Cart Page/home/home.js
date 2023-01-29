@@ -50,6 +50,6 @@ function addToCart(product) {
   document.getElementById("span").innerHTML = cartArray.length;
 }
 
-function goToCart() {
-  window.location.href = "../cart/cart.html";
-}
+// function goToCart() {
+//   window.location.href = "../cart/cart.html";
+// }
